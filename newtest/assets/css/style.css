@@ -1,0 +1,178 @@
+:root {
+    --p-light: #A7EBF2;
+    --p-mid1:  #54ACBF;
+    --p-mid2:  #26658C;
+    --p-dark:  #023859;
+    --p-navy:  #011C40;
+    --card-bg: rgba(13,20,28,0.95);
+    --card-contrast: rgba(255,255,255,0.96);
+}
+
+/* Industrial background with palette-based overlay */
+body {
+    background-color: var(--p-navy);
+    background-image:
+        linear-gradient(rgba(1,28,64,0.72), rgba(2,56,89,0.48)),
+        url('https://i.pinimg.com/originals/4e/54/cd/4e54cdecd5e220c7804fda7a98ffca3e.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--p-light);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+        .main-container {
+            min-height: 100vh;
+            padding: 2.5rem 0;
+        }
+
+        /* Cards: use a neutral light-grey with a soft tint from palette for readability */
+        .card {
+            background: rgba(236, 239, 241, 0.98); /* light neutral so content is readable on dark bg */
+            color: #0f1720;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(2,24,35,0.06);
+            box-shadow:
+                0 8px 24px rgba(1,12,20,0.45),
+                0 3px 8px rgba(1,12,20,0.28);
+            overflow: hidden;
+        }
+
+        /* Header card: use deep gradient with mid accents */
+        .card-header {
+            background: linear-gradient(90deg, var(--p-navy), var(--p-dark));
+            color: var(--p-light);
+            border: none;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .discount-badge {
+            font-size: 0.75rem;
+            background-color: var(--p-mid1);
+            color: #03212b;
+        }
+
+        /* Totals: subtle light panel with palette border accent */
+        .total-section {
+            background: linear-gradient(180deg, #f0f4f6, #f8fafc);
+            color: #0b1220;
+            border-left: 4px solid var(--p-mid2);
+        }
+
+        /* Item card: neutral card with palette hover accent */
+        .item-card {
+            height: 100%;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            transition: transform .14s ease, box-shadow .14s ease, border-left-color .14s ease;
+            border-left: 6px solid transparent;
+        }
+
+        .item-card:hover {
+            transform: translateY(-6px);
+            box-shadow:
+                0 22px 50px rgba(1,12,20,0.55),
+                0 8px 18px rgba(1,12,20,0.30);
+            border-left-color: var(--p-mid1);
+        }
+
+        .item-image {
+            height: 180px;
+            object-fit: cover;
+            background: linear-gradient(180deg, rgba(167,235,242,0.08), rgba(37,101,140,0.06));
+            display: block;
+        }
+
+        .item-type {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .card-footer {
+            background: transparent;
+            border-top: none;
+        }
+
+        /* Quantity input tweaks for better visibility */
+        .quantity-input {
+            background: #fff;
+            color: #111;
+            border: 1px solid #cfd8dc;
+        }
+
+        /* Primary buttons adopt palette blues */
+        .btn-primary {
+            background-color: var(--p-mid2);
+            border-color: var(--p-dark);
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: var(--p-dark);
+            border-color: var(--p-navy);
+        }
+
+        /* Add button uses mid cyan */
+        .add-to-cart {
+            background-color: transparent;
+            border: 1px solid var(--p-mid1);
+            color: var(--p-mid2);
+        }
+        .add-to-cart:hover {
+            background-color: var(--p-mid1);
+            color: #022b33;
+            border-color: var(--p-mid2);
+        }
+
+        /* Cart panel styling */
+        .cart-panel {
+            position: sticky;
+            top: 24px;
+        }
+        .cart-panel .cart-body {
+            max-height: 60vh;
+            overflow: auto;
+        }
+        .cart-empty {
+            color: #6b7280;
+            font-size: .95rem;
+        }
+
+        /* Small screens: fix cart to bottom like a bar */
+        @media (max-width: 991.98px) {
+            .cart-panel {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                z-index: 1050;
+                padding: .5rem;
+            }
+            .cart-card {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .cart-body {
+                display:none;
+            }
+        }
+
+        /* Table in results: keep clear readable text and accent headers */
+        .table thead th {
+            background: linear-gradient(180deg, rgba(37,101,140,0.06), rgba(2,56,89,0.04));
+            color: #062032;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+            color: #0f1720;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 767px) {
+            .item-image { height: 160px; }
+        }
+
+
